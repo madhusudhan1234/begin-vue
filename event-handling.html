@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Step 2 Vue Js</title>
+	<title>Event Handling</title>
 </head>
 <body>
 	
 	<div id="app">
-		<form>
-
-			<span class="error" v-show="!message">
-				You Must enter a message
-			</span>
-
-			<textarea v-model="message"></textarea>
-
-			<button type="submit" v-show="message">Submit</button>
-
-		</form>
-
-		{{ $data | json }}
+		<button type="submit" @click="count += 1">
+			Increment Counter : {{ count }}
+		</button>
 	</div>
+
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
 	<script type="text/javascript">
 		new Vue({
 			el: '#app',
 			data: {
-				message:''
+				count: 0
+			},
+			methods:{
+				updateCount: function(){
+					this.count += 1;
+				}
 			}
 		});
 	</script>
-
 </body>
 </html>

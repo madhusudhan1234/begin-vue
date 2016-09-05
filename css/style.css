@@ -1,0 +1,10 @@
+.plan__name{
+	length:150px;
+	float:left;
+	margin-right: 40px;
+}
+.plan__price{
+	length:150px;
+	float:left;
+	margin-right: 50px;
+}

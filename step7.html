@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Step 7 Vue Js</title>
+	<style type="text/css">
+		.completed{
+			text-decoration: line-through;	
+		}
+	</style>
+</head>
+<body>
+
+	<div id="app">
+		<tasks :list="tasks"></tasks>
+		<tasks :list="tasks"></tasks>
+		<tasks :list="tasks"></tasks>
+	</div>
+
+	<template id="tasks-template">
+		<ul>
+			<li  v-for="task in list" 
+			:class="{ 'completed' : task.completed }"
+			@click = "task.completed = ! task.completed"
+			>
+			{{ task.body }}
+			</li>
+		</ul>
+	</template>
+
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Step 7 Vue Js</title>
+	<style type="text/css">
+		.completed{
+			text-decoration: line-through;	
+		}
+	</style>
+</head>
+<body>
+
+	<div id="app">
+		<tasks :list="tasks"></tasks>
+	</div>
+
+	<template id="tasks-template">
+
+		<h1>My Tasks 
+			<span v-show="remaining">
+				( {{ remaining }} )
+			</span>
+		</h1>
+
+		<ul v-show="list.length">
+			<li  v-for="task in list" 
+			:class="{ 'completed' : task.completed }"
+			@click = "task.completed = ! task.completed"
+			>
+			{{ task.body }}
+
+			<strong @click="deleteTask(task)">X</strong>
+
+			</li>
+			
+			<button @click="clearCompleted">Clear Completed</button>
+		</ul>
+
+		<p v-else>No Tasks Yet !</p>
+
+	</template>
+
+	<script type="text/javascript" src="js/vue.min.js"></script>
+	<script type="text/javascript" src="js/step9.js"></script>
+
+</body>
+</html>
